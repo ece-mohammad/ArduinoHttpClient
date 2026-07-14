@@ -39,8 +39,14 @@ void HttpClient::resetState()
   iTransferEncodingChunkedPtr = kTransferEncodingChunked;
   iIsChunked = false;
   iChunkLength = 0;
-  iHttpResponseTimeout = kHttpResponseTimeout;
-  iHttpWaitForDataDelay = kHttpWaitForDataDelay;
+  if(iHttpResponseTimeout == 0) 
+  {
+      iHttpResponseTimeout = kHttpResponseTimeout;
+  }
+  if(iHttpWaitForDataDelay == 0) 
+  {
+    iHttpWaitForDataDelay = kHttpWaitForDataDelay;
+  }
 }
 
 void HttpClient::stop()
